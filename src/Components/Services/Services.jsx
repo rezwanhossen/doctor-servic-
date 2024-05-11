@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import SBanner from "../../Pages/SurvicesPag/SBanner";
 
 const Services = () => {
   return (
@@ -6,6 +7,7 @@ const Services = () => {
       <Helmet>
         <title>DOCCARE || services</title>
       </Helmet>
+      <SBanner />
     </div>
   );
 };
