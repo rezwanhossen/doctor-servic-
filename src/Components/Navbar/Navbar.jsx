@@ -1,10 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo (2).png";
 const Navbar = () => {
   const navitem = (
     <>
-      <li>
-        <Link className="">Item 1</Link>
+      <li className="mr-1">
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li className="mr-1">
+        <NavLink to="/services">Services</NavLink>
+      </li>
+      <li className="dropdown ">
+        <div tabIndex={0} role="button" className=" m-1">
+          Dashboard
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-[10] menu p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <a>Item 2</a>
+          </li>
+        </ul>
       </li>
     </>
   );
@@ -36,10 +55,12 @@ const Navbar = () => {
               {navitem}
             </ul>
           </div>
-          <img className=" w-18 h-10 btn" src={logo} alt="" />
+          <Link to="/">
+            <img className=" w-18 h-10 btn" src={logo} alt="" />
+          </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navitem}</ul>
+        <div className=" navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 ">{navitem}</ul>
         </div>
         <div className="navbar-end">
           <div className=" flex gap-2 items-center">

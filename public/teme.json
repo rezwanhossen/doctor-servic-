@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/MGZCj8Y/d4.jpg",
+    "name": "Dr. Olivia Bennett",
+    "specialty": "Cardiology",
+    "experience": "20+ years",
+    "education": "Harvard Medical School",
+    "additional_training": "Johns Hopkins Hospital",
+    "expertise": "Interventional cardiology",
+    "description": "Dr. Bennett is a renowned cardiologist with over 20 years of experience in treating heart diseases. She completed her medical degree at Harvard Medical School and went on to specialize in cardiology at Johns Hopkins Hospital. Dr. Bennett is known for her expertise in interventional cardiology and her compassionate approach to patient care."
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/gtCq843/d3.jpg",
+    "name": "Dr. Matthew Wong",
+    "specialty": "Orthopedic Surgery",
+    "experience": "15+ years",
+    "education": "Stanford University School of Medicine",
+    "additional_training": "Mayo Clinic",
+    "expertise": "Sports medicine, joint replacement",
+    "description": "Dr. Wong is an orthopedic surgeon specializing in sports medicine and joint replacement. He earned his medical degree from Stanford University School of Medicine and completed his residency at the Mayo Clinic. Dr. Wong is dedicated to helping patients regain mobility and improve their quality of life through advanced surgical techniques and personalized rehabilitation programs."
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/3ybbdnc/d5.png",
+    "name": "Dr. Sophia Patel",
+    "specialty": "Obstetrics and Gynecology",
+    "experience": "10+ years",
+    "education": "Columbia University College of Physicians and Surgeons",
+    "additional_training": "Brigham and men's Hospital",
+    "expertise": "Comprehensive women's healthcare",
+    "description": "Dr. Patel is a board-certified OB/GYN with a passion for women's health. She received her medical degree from Columbia University College of Physicians and Surgeons and completed her residency at Brigham and Women's Hospital. Dr. Patel provides comprehensive care to women of all ages, from routine screenings to complex surgical procedures."
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/w6BKPWX/d2.webp",
+    "name": "Dr. Benjamin Chang",
+    "specialty": "Dermatology",
+    "experience": "12+ years",
+    "education": "University of California, San Francisco School of Medicine",
+    "additional_training": "University of Pennsylvania",
+    "expertise": "Cosmetic dermatology, skin cancer treatment",
+    "description": "Dr. Chang is a dermatologist known for his expertise in cosmetic dermatology and skin cancer treatment. He graduated from the University of California, San Francisco School of Medicine and completed his residency at the University of Pennsylvania. Dr. Chang is committed to helping patients achieve healthy, radiant skin through personalized treatment plans."
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/Z2Hx8zg/d1.webp",
+    "name": "Dr. Emily Nguyen",
+    "specialty": "Pediatrics",
+    "experience": "8+ years",
+    "education": "Yale School of Medicine",
+    "additional_training": "Children's Hospital of Philadelphia",
+    "expertise": "Preventive care, adolescent medicine",
+    "description": "Dr. Nguyen is a pediatrician who loves working with children and adolescents. She earned her medical degree from Yale School of Medicine and completed her residency at Children's Hospital of Philadelphia. Dr. Nguyen believes in preventive care and enjoys educating families on healthy lifestyle habits to promote optimal growth and development."
+  }
+]

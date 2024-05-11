@@ -1,10 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+import Socal from "./Socal";
 
 const Login = () => {
   return (
     <div className=" w-3/5 mx-auto mt-5">
+      <Helmet>
+        <title>DOCCARE || login</title>
+      </Helmet>
       <div className=" md:flex gap-5 bg-slate-200 rounded-md p-4 ">
         <div className="flex-1">
           <img
@@ -50,14 +54,7 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <div>
-            <p className=" divider my-4 text-xl font-bold "> or</p>
-            <div className=" flex justify-center">
-              <button className="btn text-xl btn-outline btn-secondary">
-                <FaGoogle /> Google
-              </button>
-            </div>
-          </div>
+          <Socal></Socal>
         </div>
       </div>
     </div>
