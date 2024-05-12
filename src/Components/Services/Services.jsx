@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import Allservics from "../../Pages/SurvicesPag/Allservics";
 import SBanner from "../../Pages/SurvicesPag/SBanner";
 
 const Services = () => {
@@ -8,6 +9,7 @@ const Services = () => {
         <title>DOCCARE || services</title>
       </Helmet>
       <SBanner />
+      <Allservics></Allservics>
     </div>
   );
 };

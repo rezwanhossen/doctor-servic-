@@ -18,10 +18,16 @@ const Navbar = () => {
           className="dropdown-content z-[10] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
-            <a>Item 1</a>
+            <NavLink to="/addsurvice">Add Service</NavLink>
           </li>
           <li>
-            <a>Item 2</a>
+            <NavLink to="/managservic">Manag Service</NavLink>
+          </li>
+          <li>
+            <a>Booking Service</a>
+          </li>
+          <li>
+            <a>Service To Do</a>
           </li>
         </ul>
       </li>
