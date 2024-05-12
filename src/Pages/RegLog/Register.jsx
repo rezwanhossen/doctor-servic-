@@ -1,15 +1,42 @@
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
+import toast from "react-hot-toast";
 const Register = () => {
-  const handeregister = (e) => {
+  const { creatuser, updatprofil, googlelogin, user, setuser } =
+    useContext(AuthContext);
+  const naviget = useNavigate();
+  // google Signin
+  const googleloginuser = async () => {
+    try {
+      await googlelogin();
+      naviget("/");
+      toast.success("Login Succesfully !");
+    } catch (error) {
+      console.log(error?.message);
+      toast.error(error?.message);
+    }
+  };
+
+  const handeregister = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const img = form.img.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name);
+    try {
+      const result = await creatuser(email, password);
+      await updatprofil(name, img);
+      setuser({ ...user, displayName: name, photoURL: img });
+      naviget("/");
+      toast.success("Register Succesfully !");
+    } catch (error) {
+      console.log(error?.message);
+      toast.error(error?.message);
+    }
   };
   return (
     <div className=" w-3/5 mx-auto mt-5">
@@ -84,7 +111,10 @@ const Register = () => {
           <div>
             <p className=" divider my-4 text-xl font-bold "> or connect with</p>
             <div className=" flex justify-center">
-              <button className="btn text-xl btn-outline btn-secondary">
+              <button
+                onClick={googleloginuser}
+                className="btn text-xl btn-outline btn-secondary"
+              >
                 <FaGoogle /> Google
               </button>
             </div>

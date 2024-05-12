@@ -15,8 +15,10 @@ export const AuthContext = createContext(null);
 const googlepro = new GoogleAuthProvider();
 const FirbaseProvider = ({ children }) => {
   const [user, setuser] = useState(null);
+  const [loding, setloding] = useState(true);
   //user create
   const creatuser = (email, password) => {
+    setloding(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //updat profil
@@ -29,10 +31,12 @@ const FirbaseProvider = ({ children }) => {
 
   //login user
   const login = (email, password) => {
+    setloding(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   //google login
   const googlelogin = () => {
+    setloding(true);
     return signInWithPopup(auth, googlepro);
   };
   // logout
@@ -44,18 +48,19 @@ const FirbaseProvider = ({ children }) => {
   useEffect(() => {
     const remain = onAuthStateChanged(auth, (user) => {
       setuser(user);
+      setloding(false);
     });
     return () => remain();
   }, []);
 
   const allvalue = {
     user,
-
     creatuser,
     updatprofil,
     login,
     googlelogin,
     logout,
+    setuser,
   };
   return (
     <AuthContext.Provider value={allvalue}>{children}</AuthContext.Provider>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
+import toast from "react-hot-toast";
 const Login = () => {
   const { login, googlelogin } = useContext(AuthContext);
   const naviget = useNavigate();
@@ -12,16 +13,26 @@ const Login = () => {
     try {
       await googlelogin();
       naviget("/");
+      toast.success("Login Succesfully !");
     } catch (error) {
       console.log(error?.message);
+      toast.error(error?.message);
     }
   };
   // email password
-  const handellogin = (e) => {
+  const handellogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    try {
+      const result = await login(email, password);
+      naviget("/");
+      toast.success("Login Succesfully !");
+    } catch (error) {
+      console.log(error?.message);
+      toast.error(error?.message);
+    }
   };
   return (
     <div className=" w-3/5 mx-auto mt-5">
