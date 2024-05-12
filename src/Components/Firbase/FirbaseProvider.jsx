@@ -1,26 +1,64 @@
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
-import { createContext, useState } from "react";
-const AurhContext = createContext(null);
-//socal media
-const googlepro = new GoogleAuthProvider();
+import { useEffect, useState } from "react";
+import { createContext } from "react";
+import auth from "./firbase.config";
 
-const FirbaseProvider = ({ childern }) => {
+export const AuthContext = createContext(null);
+const googlepro = new GoogleAuthProvider();
+const FirbaseProvider = ({ children }) => {
   const [user, setuser] = useState(null);
-  // user creation
-  const createUser = (email, password) => {
+  //user create
+  const creatuser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  const allusers = {
-    user,
+  //updat profil
+  const updatprofil = (name, img) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: img,
+    });
   };
 
+  //login user
+  const login = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  //google login
+  const googlelogin = () => {
+    return signInWithPopup(auth, googlepro);
+  };
+  // logout
+  const logout = () => {
+    setuser(null);
+    signOut(auth);
+  };
+  // objerver
+  useEffect(() => {
+    const remain = onAuthStateChanged(auth, (user) => {
+      setuser(user);
+    });
+    return () => remain();
+  }, []);
+
+  const allvalue = {
+    user,
+
+    creatuser,
+    updatprofil,
+    login,
+    googlelogin,
+    logout,
+  };
   return (
-    <div>
-      <AurhContext.Provider value={allusers}>{childern}</AurhContext.Provider>
-    </div>
+    <AuthContext.Provider value={allvalue}>{children}</AuthContext.Provider>
   );
 };
 

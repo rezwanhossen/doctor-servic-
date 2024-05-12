@@ -1,8 +1,16 @@
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import Socal from "./Socal";
-
+import { FaGoogle } from "react-icons/fa";
 const Register = () => {
+  const handeregister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const img = form.img.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name);
+  };
   return (
     <div className=" w-3/5 mx-auto mt-5">
       <Helmet>
@@ -18,7 +26,7 @@ const Register = () => {
         </div>
         <div className="flex-1  space-y-3">
           <h2 className="text-3xl font-bold text-center mb-5">Register </h2>
-          <form className=" space-y-3">
+          <form onSubmit={handeregister} className=" space-y-3">
             <div>
               <input
                 className=" input input-bordered w-full"
@@ -73,7 +81,14 @@ const Register = () => {
               Login
             </Link>
           </p>
-          <Socal></Socal>
+          <div>
+            <p className=" divider my-4 text-xl font-bold "> or connect with</p>
+            <div className=" flex justify-center">
+              <button className="btn text-xl btn-outline btn-secondary">
+                <FaGoogle /> Google
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

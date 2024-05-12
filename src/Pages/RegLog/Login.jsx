@@ -1,9 +1,28 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
-import Socal from "./Socal";
-
+import { Link, useNavigate } from "react-router-dom";
+import { FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 const Login = () => {
+  const { login, googlelogin } = useContext(AuthContext);
+  const naviget = useNavigate();
+  // google Signin
+  const googleloginuser = async () => {
+    try {
+      await googlelogin();
+      naviget("/");
+    } catch (error) {
+      console.log(error?.message);
+    }
+  };
+  // email password
+  const handellogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+  };
   return (
     <div className=" w-3/5 mx-auto mt-5">
       <Helmet>
@@ -19,7 +38,7 @@ const Login = () => {
         </div>
         <div className="flex-1 p-3 space-y-3">
           <h2 className="text-3xl font-bold text-center mb-5">Login </h2>
-          <form>
+          <form onSubmit={handellogin}>
             <div>
               <input
                 className=" input input-bordered w-full"
@@ -54,7 +73,17 @@ const Login = () => {
               Register
             </Link>
           </p>
-          <Socal></Socal>
+          <div>
+            <p className=" divider my-4 text-xl font-bold "> or connect with</p>
+            <div className=" flex justify-center">
+              <button
+                onClick={googleloginuser}
+                className="btn text-xl btn-outline btn-secondary"
+              >
+                <FaGoogle /> Google
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
