@@ -45,9 +45,12 @@ const Sarcicses = () => {
                 </span>
               </p>
             </div>
-            <button className=" btn  bg-gradient-to-r from-purple-500 to-pink-500 w-full mt-3">
+            <Link
+              to="/simglepag"
+              className=" btn  bg-gradient-to-r from-purple-500 to-pink-500 w-full mt-3"
+            >
               View Detail
-            </button>
+            </Link>
           </div>
         ))}
       </div>

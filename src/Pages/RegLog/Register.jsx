@@ -1,10 +1,12 @@
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 import toast from "react-hot-toast";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 const Register = () => {
+  const [showpass, setshowpass] = useState(false);
   const { creatuser, updatprofil, googlelogin, user, setuser } =
     useContext(AuthContext);
   const naviget = useNavigate();
@@ -85,7 +87,7 @@ const Register = () => {
               />
             </div>
 
-            <div>
+            <div className=" relative mb-3">
               <input
                 className=" input input-bordered w-full"
                 type="password"
@@ -94,6 +96,12 @@ const Register = () => {
                 required
                 id=""
               />
+              <span
+                className=" absolute top-4 right-4"
+                onClick={() => setshowpass(!showpass)}
+              >
+                {showpass ? <FiEyeOff></FiEyeOff> : <FiEye></FiEye>}
+              </span>
             </div>
 
             <input

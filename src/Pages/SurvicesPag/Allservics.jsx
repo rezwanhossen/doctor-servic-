@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Allservics = () => {
   const [servic, setservic] = useState([]);
@@ -49,9 +50,12 @@ const Allservics = () => {
                   </span>
                 </p>
               </div>
-              <button className=" btn  bg-gradient-to-r from-purple-500 to-pink-500 w-full mt-3">
+              <Link
+                to="/simglepag"
+                className=" btn  bg-gradient-to-r from-purple-500 to-pink-500 w-full mt-3"
+              >
                 View Detail
-              </button>
+              </Link>
             </div>
           ))}
         </div>

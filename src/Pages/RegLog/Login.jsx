@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 import toast from "react-hot-toast";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 const Login = () => {
+  const [showpass, setshowpass] = useState(false);
   const { login, googlelogin } = useContext(AuthContext);
   const naviget = useNavigate();
+  const location = useLocation();
+  const form = location.state || "/";
   // google Signin
   const googleloginuser = async () => {
     try {
       await googlelogin();
-      naviget("/");
+      naviget(form);
       toast.success("Login Succesfully !");
     } catch (error) {
       console.log(error?.message);
@@ -61,7 +65,7 @@ const Login = () => {
               />
             </div>
             <br />
-            <div>
+            <div className=" relative mb-3">
               <input
                 className=" input input-bordered w-full"
                 type="password"
@@ -70,6 +74,12 @@ const Login = () => {
                 required
                 id=""
               />
+              <span
+                className=" absolute top-4 right-4"
+                onClick={() => setshowpass(!showpass)}
+              >
+                {showpass ? <FiEyeOff></FiEyeOff> : <FiEye></FiEye>}
+              </span>
             </div>
             <br />
             <input

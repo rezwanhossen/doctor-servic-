@@ -61,6 +61,7 @@ const FirbaseProvider = ({ children }) => {
     googlelogin,
     logout,
     setuser,
+    loding,
   };
   return (
     <AuthContext.Provider value={allvalue}>{children}</AuthContext.Provider>

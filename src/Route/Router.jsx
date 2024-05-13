@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import PrivetRout from "../Components/Firbase/PrivetRout";
 import Home from "../Components/Home/Home";
 import Services from "../Components/Services/Services";
 import Error from "../Pages/Error";
 import Login from "../Pages/RegLog/Login";
 import Register from "../Pages/RegLog/Register";
+import SinglePage from "../Pages/SinglePage";
 import AddService from "../Pages/SurvicesPag/AddService";
 import ManagService from "../Pages/SurvicesPag/ManagService";
 import UpdateService from "../Pages/SurvicesPag/UpdateService";
@@ -33,18 +35,39 @@ const router = createBrowserRouter([
       },
       {
         path: "/addsurvice",
-        element: <AddService></AddService>,
+        element: (
+          <PrivetRout>
+            <AddService></AddService>
+          </PrivetRout>
+        ),
       },
       {
         path: "/updateServic/:id",
-        element: <UpdateService></UpdateService>,
+        element: (
+          <PrivetRout>
+            {" "}
+            <UpdateService></UpdateService>
+          </PrivetRout>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5001/sinleservic/${params.id}`),
       },
 
       {
         path: "/managservic",
-        element: <ManagService></ManagService>,
+        element: (
+          <PrivetRout>
+            <ManagService></ManagService>
+          </PrivetRout>
+        ),
+      },
+      {
+        path: "/simglepag/:id",
+        element: (
+          <PrivetRout>
+            <SinglePage></SinglePage>
+          </PrivetRout>
+        ),
       },
     ],
   },

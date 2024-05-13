@@ -7,7 +7,7 @@ import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
-  const handeladdSurvice = async (e) => {
+  const handeladdSurvice = (e) => {
     e.preventDefault();
     const form = e.target;
     const photo = form.photo.value;
@@ -42,7 +42,7 @@ const AddService = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "success!",
-            text: "Your turesm Spot is added !",
+            text: "Your Survices is added !",
             icon: "success",
             confirmButtonText: "Cool",
           });
