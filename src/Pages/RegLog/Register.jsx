@@ -1,15 +1,20 @@
 import { Helmet } from "react-helmet";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 import toast from "react-hot-toast";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 const Register = () => {
   const [showpass, setshowpass] = useState(false);
-  const { creatuser, updatprofil, googlelogin, user, setuser } =
+  const { creatuser, updatprofil, googlelogin, user, setuser, loding } =
     useContext(AuthContext);
   const naviget = useNavigate();
+  useEffect(() => {
+    if (user) {
+      naviget("/");
+    }
+  }, [naviget, user]);
   // google Signin
   const googleloginuser = async () => {
     try {
@@ -40,6 +45,7 @@ const Register = () => {
       toast.error(error?.message);
     }
   };
+  if (user || loding) return;
   return (
     <div className=" w-3/5 mx-auto mt-5">
       <Helmet>

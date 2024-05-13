@@ -21,7 +21,7 @@ const Sarcicses = () => {
         </p>
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ">
-        {servic.map((data) => (
+        {servic.slice(0, 6).map((data) => (
           <div
             key={data._id}
             className=" border shadow-xl bg-green-500 rounded-md p-2"
@@ -46,7 +46,7 @@ const Sarcicses = () => {
               </p>
             </div>
             <Link
-              to="/simglepag"
+              to={`/simglepag/${data._id}`}
               className=" btn  bg-gradient-to-r from-purple-500 to-pink-500 w-full mt-3"
             >
               View Detail

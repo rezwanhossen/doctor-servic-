@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import PrivetRout from "../Components/Firbase/PrivetRout";
 import Home from "../Components/Home/Home";
 import Services from "../Components/Services/Services";
+import BookNow from "../Pages/BookNow";
 import Error from "../Pages/Error";
 import Login from "../Pages/RegLog/Login";
 import Register from "../Pages/RegLog/Register";
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/sinleservic/${params.id}`),
+          fetch(`http://localhost:5001/singleservic/${params.id}`),
       },
 
       {
@@ -68,6 +69,12 @@ const router = createBrowserRouter([
             <SinglePage></SinglePage>
           </PrivetRout>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/singleservic/${params.id}`),
+      },
+      {
+        path: "/booknow",
+        element: <BookNow></BookNow>,
       },
     ],
   },

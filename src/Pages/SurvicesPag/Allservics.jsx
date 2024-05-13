@@ -51,7 +51,7 @@ const Allservics = () => {
                 </p>
               </div>
               <Link
-                to="/simglepag"
+                to={`/simglepag/${data._id}`}
                 className=" btn  bg-gradient-to-r from-purple-500 to-pink-500 w-full mt-3"
               >
                 View Detail

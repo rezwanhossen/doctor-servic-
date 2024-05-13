@@ -6,17 +6,24 @@ import { useContext } from "react";
 import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 import toast from "react-hot-toast";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { useEffect } from "react";
 const Login = () => {
   const [showpass, setshowpass] = useState(false);
-  const { login, googlelogin } = useContext(AuthContext);
+  const { user, login, googlelogin, loding } = useContext(AuthContext);
   const naviget = useNavigate();
   const location = useLocation();
   const form = location.state || "/";
+
+  useEffect(() => {
+    if (user) {
+      naviget("/");
+    }
+  }, [naviget, user]);
   // google Signin
   const googleloginuser = async () => {
     try {
       await googlelogin();
-      naviget(form);
+      naviget(form, { replace: true });
       toast.success("Login Succesfully !");
     } catch (error) {
       console.log(error?.message);
@@ -38,6 +45,7 @@ const Login = () => {
       toast.error(error?.message);
     }
   };
+  if (user || loding) return;
   return (
     <div className=" w-3/5 mx-auto mt-5">
       <Helmet>
