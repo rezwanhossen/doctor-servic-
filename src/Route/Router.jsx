@@ -36,9 +36,12 @@ const router = createBrowserRouter([
         element: <AddService></AddService>,
       },
       {
-        path: "/updateServic",
+        path: "/updateServic/:id",
         element: <UpdateService></UpdateService>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/sinleservic/${params.id}`),
       },
+
       {
         path: "/managservic",
         element: <ManagService></ManagService>,
