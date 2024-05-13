@@ -24,7 +24,7 @@ const SinglePage = () => {
         </p>
         <p>{desc} </p>
         <div className="flex justify-center">
-          <Link to="/booknow" className="btn ">
+          <Link to={`/booknow/${_id}`} className="btn ">
             Book Now
           </Link>
         </div>

@@ -8,12 +8,12 @@ import Sarcicses from "../../Pages/Sarcicses";
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
+      {/* <Banner></Banner> */}
       <Sarcicses></Sarcicses>
-      <AboutUs></AboutUs>
+      {/* <AboutUs></AboutUs>
       <Ourteam></Ourteam>
       <PresentFeed></PresentFeed>
-      <QuesAAns></QuesAAns>
+      <QuesAAns></QuesAAns> */}
     </div>
   );
 };

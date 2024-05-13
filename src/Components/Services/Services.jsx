@@ -8,7 +8,7 @@ const Services = () => {
       <Helmet>
         <title>DOCCARE || services</title>
       </Helmet>
-      <SBanner />
+      {/* <SBanner /> */}
       <Allservics></Allservics>
     </div>
   );

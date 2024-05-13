@@ -8,6 +8,7 @@ import Login from "../Pages/RegLog/Login";
 import Register from "../Pages/RegLog/Register";
 import SinglePage from "../Pages/SinglePage";
 import AddService from "../Pages/SurvicesPag/AddService";
+import BookedServic from "../Pages/SurvicesPag/BookedServic";
 import ManagService from "../Pages/SurvicesPag/ManagService";
 import UpdateService from "../Pages/SurvicesPag/UpdateService";
 import Root from "./Root";
@@ -73,8 +74,22 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5001/singleservic/${params.id}`),
       },
       {
-        path: "/booknow",
-        element: <BookNow></BookNow>,
+        path: "/booknow/:id",
+        element: (
+          <PrivetRout>
+            <BookNow></BookNow>
+          </PrivetRout>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/singleservic/${params.id}`),
+      },
+      {
+        path: "/bookservic",
+        element: (
+          <PrivetRout>
+            <BookedServic></BookedServic>
+          </PrivetRout>
+        ),
       },
     ],
   },
