@@ -6,6 +6,7 @@ import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 import { useState } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const ManagService = () => {
   const { user } = useContext(AuthContext);
@@ -50,6 +51,9 @@ const ManagService = () => {
 
   return (
     <div className=" mt-5 w-full md:w-3/4 mx-auto ">
+      <Helmet>
+        <title>DOC CARE // manag service</title>
+      </Helmet>
       <h1 className="text-2xl font-bold rounded-xl p-2 bg-sky-700">
         My Add Servics : {mngdat.length}
       </h1>

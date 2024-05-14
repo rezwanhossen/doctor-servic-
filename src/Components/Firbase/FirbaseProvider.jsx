@@ -1,3 +1,5 @@
+// import axios from "axios";
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -40,8 +42,9 @@ const FirbaseProvider = ({ children }) => {
     return signInWithPopup(auth, googlepro);
   };
   // logout
-  const logout = () => {
+  const logout = async () => {
     setuser(null);
+
     signOut(auth);
   };
   // objerver
@@ -49,6 +52,12 @@ const FirbaseProvider = ({ children }) => {
     const remain = onAuthStateChanged(auth, (user) => {
       setuser(user);
       setloding(false);
+      // if (user) {
+      //   const loguser = { email: user?.email };
+      //   axios.post("http://localhost:5001/jwt", loguser, {
+      //     withCredentials: "include",
+      //   });
+      // }
     });
     return () => remain();
   }, []);

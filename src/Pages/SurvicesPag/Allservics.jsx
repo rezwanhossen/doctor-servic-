@@ -1,8 +1,9 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Allservics = () => {
+  // const [search, setsearch] = useState("");
   const [servic, setservic] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5001/service")
@@ -10,6 +11,22 @@ const Allservics = () => {
       .then((data) => setservic(data));
   }, []);
 
+  // const handelsearch = (e) => {
+  //   e.preventDefault();
+  //   const text = e.target.text.value;
+
+  //   useEffect(() => {
+  //     fetch(`http://localhost:5001/all-servic?seaech=${text}`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ text: text }),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => console.log(data));
+  //   }, [text]);
+  // };
   return (
     <div className=" mt-10 md:max-w-[90%] mx-auto bg-red-100 p-5">
       <div className=" text-center space-y-2">
@@ -20,10 +37,19 @@ const Allservics = () => {
           deserve.{" "}
         </p>
         <div className=" md:flex gap-2 my-10 bg-green-700 p-5 rounded-md">
-          <input type="text" className=" input input-bordered" name="" id="" />
-          <button className="btn bg-gradient-to-r from-purple-500 to-pink-500 ">
-            Search
-          </button>
+          <form className=" space-x-2">
+            <input
+              type="text"
+              className=" input input-bordered"
+              name="text"
+              id=""
+            />
+            <input
+              className="btn bg-gradient-to-r from-purple-500 to-pink-500 "
+              type="submit"
+              value="Search.."
+            />
+          </form>
         </div>
 
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ">

@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD_9S1nPNgEv1bkkNbhJsFZXkE5JxWvgCs",
-  authDomain: "doctoe-servics.firebaseapp.com",
-  projectId: "doctoe-servics",
-  storageBucket: "doctoe-servics.appspot.com",
-  messagingSenderId: "96089320166",
-  appId: "1:96089320166:web:e415dab458a1b1e6c36927",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

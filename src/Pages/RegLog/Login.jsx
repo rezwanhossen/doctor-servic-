@@ -7,6 +7,7 @@ import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
 import toast from "react-hot-toast";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useEffect } from "react";
+// import axios from "axios";
 const Login = () => {
   const [showpass, setshowpass] = useState(false);
   const { user, login, googlelogin, loding } = useContext(AuthContext);
@@ -38,6 +39,7 @@ const Login = () => {
     const password = form.password.value;
     try {
       const result = await login(email, password);
+
       naviget("/");
       toast.success("Login Succesfully !");
     } catch (error) {

@@ -1,5 +1,6 @@
 // import axios from "axios";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 // import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
@@ -51,6 +52,9 @@ const AddService = () => {
   };
   return (
     <div className=" mt-10 w-full md:max-w-[70%] mx-auto">
+      <Helmet>
+        <title> add service</title>
+      </Helmet>
       <form
         onSubmit={handeladdSurvice}
         className=" border rounded-md bg-slate-400 shadow-md p-10"

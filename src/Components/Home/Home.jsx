@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import AboutUs from "../../Pages/AboutUs";
 import Banner from "../../Pages/Banner";
 import Ourteam from "../../Pages/Ourteam";
@@ -8,12 +9,15 @@ import Sarcicses from "../../Pages/Sarcicses";
 const Home = () => {
   return (
     <div>
-      {/* <Banner></Banner> */}
+      <Helmet>
+        <title>DOC CARE || Home</title>
+      </Helmet>
+      <Banner></Banner>
       <Sarcicses></Sarcicses>
-      {/* <AboutUs></AboutUs>
+      <AboutUs></AboutUs>
       <Ourteam></Ourteam>
       <PresentFeed></PresentFeed>
-      <QuesAAns></QuesAAns> */}
+      <QuesAAns></QuesAAns>
     </div>
   );
 };

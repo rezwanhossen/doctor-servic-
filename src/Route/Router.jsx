@@ -10,6 +10,7 @@ import SinglePage from "../Pages/SinglePage";
 import AddService from "../Pages/SurvicesPag/AddService";
 import BookedServic from "../Pages/SurvicesPag/BookedServic";
 import ManagService from "../Pages/SurvicesPag/ManagService";
+import ToDoServic from "../Pages/SurvicesPag/ToDoServic";
 import UpdateService from "../Pages/SurvicesPag/UpdateService";
 import Root from "./Root";
 
@@ -88,6 +89,14 @@ const router = createBrowserRouter([
         element: (
           <PrivetRout>
             <BookedServic></BookedServic>
+          </PrivetRout>
+        ),
+      },
+      {
+        path: "/todoservic",
+        element: (
+          <PrivetRout>
+            <ToDoServic></ToDoServic>
           </PrivetRout>
         ),
       },

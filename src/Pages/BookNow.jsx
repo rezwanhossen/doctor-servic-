@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Components/Firbase/FirbaseProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const BookNow = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
-
+  const naviget = useNavigate();
   const servic = useLoaderData();
   const { _id, photo, sName, pric, area, desc, email, uimg, UserName } = servic;
   const handelbook = (e) => {
@@ -51,6 +51,7 @@ const BookNow = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+          naviget("/bookservic");
         }
       });
   };
