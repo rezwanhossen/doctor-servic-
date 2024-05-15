@@ -53,7 +53,9 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/singleservic/${params.id}`),
+          fetch(
+            `https://doctor-servic-server.vercel.app/singleservic/${params.id}`
+          ),
       },
 
       {
@@ -72,7 +74,9 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/singleservic/${params.id}`),
+          fetch(
+            `https://doctor-servic-server.vercel.app/singleservic/${params.id}`
+          ),
       },
       {
         path: "/booknow/:id",
@@ -82,7 +86,9 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/singleservic/${params.id}`),
+          fetch(
+            `https://doctor-servic-server.vercel.app/singleservic/${params.id}`
+          ),
       },
       {
         path: "/bookservic",

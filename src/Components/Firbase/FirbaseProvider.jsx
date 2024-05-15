@@ -50,14 +50,23 @@ const FirbaseProvider = ({ children }) => {
   // objerver
   useEffect(() => {
     const remain = onAuthStateChanged(auth, (user) => {
+      const loguser = { email: user?.email };
       setuser(user);
       setloding(false);
-      // if (user) {
-      //   const loguser = { email: user?.email };
-      //   axios.post("http://localhost:5001/jwt", loguser, {
-      //     withCredentials: "include",
-      //   });
-      // }
+      if (user) {
+        // const loguser = { email: user?.email };
+        axios
+          .post("https://doctor-servic-server.vercel.app/jwt", loguser, {
+            withCredentials: "include",
+          })
+          .then((res) => console.log(res.data));
+      } else {
+        axios
+          .post("https://doctor-servic-server.vercel.app/logout", loguser, {
+            withCredentials: "include",
+          })
+          .then((res) => console.log(res.data));
+      }
     });
     return () => remain();
   }, []);

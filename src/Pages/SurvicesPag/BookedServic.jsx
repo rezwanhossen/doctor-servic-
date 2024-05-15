@@ -9,12 +9,14 @@ const BookedServic = () => {
   const { user } = useContext(AuthContext);
   const [book, setbook] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5001/booked/${user?.email}`)
+    fetch(`https://doctor-servic-server.vercel.app/booked/${user?.email}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setbook(data));
   }, []);
   const handleStatus = (id, status) => {
-    fetch(`http://localhost:5001/updatstaus/${id}`, {
+    fetch(`https://doctor-servic-server.vercel.app/updatstaus/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

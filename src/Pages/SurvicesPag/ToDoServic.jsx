@@ -8,13 +8,18 @@ const ToDoServic = () => {
   const { user } = useContext(AuthContext);
   const [dobook, setdobook] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5001/to-do-booked/${user?.email}`)
+    fetch(
+      `https://doctor-servic-server.vercel.app/to-do-booked/${user?.email}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => setdobook(data));
   }, []);
   const handleStatus = (id, prev, status) => {
     if (prev === status) return toast.error("you alrady click this one");
-    fetch(`http://localhost:5001/updatstaus/${id}`, {
+    fetch(`https://doctor-servic-server.vercel.app/updatstaus/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

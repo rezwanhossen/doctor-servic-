@@ -6,7 +6,7 @@ const Allservics = () => {
   // const [search, setsearch] = useState("");
   const [servic, setservic] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/service")
+    fetch("https://doctor-servic-server.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setservic(data));
   }, []);
@@ -16,7 +16,7 @@ const Allservics = () => {
   //   const text = e.target.text.value;
 
   //   useEffect(() => {
-  //     fetch(`http://localhost:5001/all-servic?seaech=${text}`, {
+  //     fetch(`https://doctor-servic-server.vercel.app/all-servic?seaech=${text}`, {
   //       method: "GET",
   //       headers: {
   //         "Content-Type": "application/json",

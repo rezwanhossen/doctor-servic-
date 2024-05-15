@@ -2,9 +2,13 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 // import toast from "react-hot-toast";
+
 import Swal from "sweetalert2";
 
 import { AuthContext } from "../../Components/Firbase/FirbaseProvider";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +35,7 @@ const AddService = () => {
     };
 
     //sent data in data base
-    fetch("http://localhost:5001/service", {
+    fetch("https://doctor-servic-server.vercel.app/service", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,8 +54,13 @@ const AddService = () => {
         }
       });
   };
+  AOS.init();
   return (
-    <div className=" mt-10 w-full md:max-w-[70%] mx-auto">
+    <div
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      className=" mt-10 w-full md:max-w-[70%] mx-auto"
+    >
       <Helmet>
         <title> add service</title>
       </Helmet>

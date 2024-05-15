@@ -1,20 +1,31 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+// AOS.init();
 
 const Sarcicses = () => {
   const [servic, setservic] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/service")
+    fetch("https://doctor-servic-server.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setservic(data));
   }, []);
 
+  AOS.init();
+
   return (
     <div className=" mt-10 w-full md:max-w-[85%] mx-auto">
       <div className=" text-center">
-        <h1 className="text-3xl md:text-5xl font-bold my-4">Services</h1>
-        <p>
+        <h1
+          data-aos="fade-left"
+          className="text-3xl md:text-5xl font-bold my-4"
+        >
+          Services
+        </h1>
+        <p data-aos="fade-right">
           From preventive care to specialized treatments, our comprehensive
           services ensure that you receive <br /> the attention and support you
           deserve.

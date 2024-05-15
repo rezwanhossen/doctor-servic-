@@ -12,7 +12,7 @@ const ManagService = () => {
   const { user } = useContext(AuthContext);
   const [mngdat, setmngdat] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5001/service/${user?.email}`)
+    fetch(`https://doctor-servic-server.vercel.app/service/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setmngdat(data);
@@ -30,7 +30,7 @@ const ManagService = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5001/service/${id}`, {
+        fetch(`https://doctor-servic-server.vercel.app/service/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

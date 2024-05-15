@@ -1,13 +1,21 @@
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// AOS.init();
 const QuesAAns = () => {
+  AOS.init();
   return (
     <div className=" mt-10 bg-rose-300 rounded-md w-full md:max-w-[90%] mx-auto">
       <div className=" md:flex gap-5 p-5">
         <div className=" flex-1 p-3">
-          <h1 className="text-2xl font-bold md:text-4xl">
+          <h1 data-aos="fade-right" className="text-2xl font-bold md:text-4xl">
             Have Any Questions About DOCCARE Information?
           </h1>
           <div className=" mt-5">
-            <div className="collapse collapse-arrow bg-base-200 mb-1">
+            <div
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              className="collapse collapse-arrow bg-base-200 mb-1"
+            >
               <input type="radio" name="my-accordion-2" defaultChecked />
               <div className="collapse-title text-xl font-medium">
                 Is my medical information secure on DocCare?
@@ -22,7 +30,11 @@ const QuesAAns = () => {
                 </p>
               </div>
             </div>
-            <div className="collapse collapse-arrow bg-base-200 mb-1">
+            <div
+              data-aos="fade-right"
+              data-aos-duration="1500"
+              className="collapse collapse-arrow bg-base-200 mb-1"
+            >
               <input type="radio" name="my-accordion-2" defaultChecked />
               <div className="collapse-title text-xl font-medium">
                 What services does DocCare provide?
@@ -36,7 +48,11 @@ const QuesAAns = () => {
                 </p>
               </div>
             </div>
-            <div className="collapse collapse-arrow bg-base-200 mb-1">
+            <div
+              data-aos="fade-right"
+              data-aos-duration="2000"
+              className="collapse collapse-arrow bg-base-200 mb-1"
+            >
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">
                 Can I access my medical records through DocCare?
@@ -50,7 +66,11 @@ const QuesAAns = () => {
                 </p>
               </div>
             </div>
-            <div className="collapse collapse-arrow bg-base-200 mb-1">
+            <div
+              data-aos="fade-right"
+              data-aos-duration="3000"
+              className="collapse collapse-arrow bg-base-200 mb-1"
+            >
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">
                 Can I use DocCare for urgent medical issues?
