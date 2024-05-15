@@ -35,7 +35,7 @@ const BookNow = () => {
       pric,
       status,
     };
-    fetch("http://localhost:5001/booked", {
+    fetch("https://doctor-servic-server.vercel.app/booked", {
       method: "POST",
       headers: {
         "content-type": "application/json",

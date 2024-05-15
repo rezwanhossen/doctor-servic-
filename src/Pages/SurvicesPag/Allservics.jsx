@@ -9,10 +9,10 @@ const Allservics = () => {
   const [search, setsearch] = useState("");
   const [servic, setservic] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5001/service?search=${search}`)
+    fetch("https://doctor-servic-server.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setservic(data));
-  }, []);
+  }, [search]);
 
   const handelsearch = (e) => {
     e.preventDefault();

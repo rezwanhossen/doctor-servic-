@@ -9,7 +9,7 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 const Sarcicses = () => {
   const [servic, setservic] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/service")
+    fetch("https://doctor-servic-server.vercel.app/service")
       .then((res) => res.json())
       .then((data) => setservic(data));
   }, []);
