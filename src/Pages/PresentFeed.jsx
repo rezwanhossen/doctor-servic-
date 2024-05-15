@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdMessage } from "react-icons/md";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 function Arrow(props) {
   const { className, style, onClick } = props;
@@ -57,11 +58,18 @@ const PresentFeed = () => {
       .then((data) => setfedbak(data));
   }, []);
   //   console.log(fedbak);
+
+  const [typrEffect] = useTypewriter({
+    words: ["Feedback", "COMMENT"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
   return (
     <div className=" mt-10 max-w-[90%] mx-auto">
       <div className=" text-center my-5">
         <h1 className="text-3xl font-bold md:text-5xl mb-3">
-          Patient <span className=" text-rose-500">Feedback</span>
+          Patient <span className=" text-rose-500">{typrEffect}</span>
         </h1>
         <p>
           Once you've composed your feedback, submit it through the chosen

@@ -1,6 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// AOS.init();
 
 import { EffectCards } from "swiper/modules";
 import { useEffect, useState } from "react";
@@ -12,13 +15,17 @@ const Ourteam = () => {
       .then((res) => res.json())
       .then((data) => setteme(data));
   }, []);
+  AOS.init();
   return (
     <div className=" my-5">
       <div className=" text-center md:w-3/5 mx-auto space-y-2">
-        <h1 className=" text-2xl font-bold md:text-5xl text-rose-500 ">
+        <h1
+          data-aos="fade-left"
+          className=" text-2xl font-bold md:text-5xl text-rose-500 "
+        >
           Our Team
         </h1>
-        <p>
+        <p data-aos="fade-right">
           At Doc Care, we're proud to have a team of highly skilled and
           compassionate healthcare professionals dedicated to providing you with
           the best possible care. Get to know the faces behind our practice

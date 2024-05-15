@@ -9,7 +9,7 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 const Sarcicses = () => {
   const [servic, setservic] = useState([]);
   useEffect(() => {
-    fetch("https://doctor-servic-server.vercel.app/service")
+    fetch("http://localhost:5001/service")
       .then((res) => res.json())
       .then((data) => setservic(data));
   }, []);
@@ -34,6 +34,8 @@ const Sarcicses = () => {
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ">
         {servic.slice(0, 6).map((data) => (
           <div
+            data-aos="zoom-in"
+            data-aos-duration="1000"
             key={data._id}
             className=" border shadow-xl bg-green-500 rounded-md p-2"
           >

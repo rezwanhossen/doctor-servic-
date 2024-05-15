@@ -35,7 +35,7 @@ const BookNow = () => {
       pric,
       status,
     };
-    fetch("https://doctor-servic-server.vercel.app/booked", {
+    fetch("http://localhost:5001/booked", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -133,7 +133,11 @@ const BookNow = () => {
         </div>
 
         <div className="flex justify-end mt-6">
-          <input className=" btn" type="submit" value="Purchase" />
+          <input
+            className=" btn bg-gradient-to-r from-purple-500 to-pink-500"
+            type="submit"
+            value="Purchase"
+          />
         </div>
       </form>
     </div>

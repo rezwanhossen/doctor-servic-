@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,6 +9,20 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, HashNavigation } from "swiper/modules";
 
 const Banner = () => {
+  const [typrEffect] = useTypewriter({
+    words: [
+      "DOC",
+      "CARE",
+      " Specific",
+      " Health Concern",
+      "Experienced",
+      "Doctors",
+    ],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
+
   return (
     <div>
       <Swiper
@@ -28,7 +42,7 @@ const Banner = () => {
             <div className="hero-content text-center">
               <div className=" w-3/5 mx-auto">
                 <h1 className=" text-2xl md:text-5xl font-bold">
-                  Welcome <span className=" text-red-500">DOC CARE</span>
+                  Welcome <span className=" text-red-500">{typrEffect}</span>
                 </h1>
                 <p className="py-6">
                   Welcome to our Consultation Services by Doccare website! We're
@@ -45,7 +59,7 @@ const Banner = () => {
               <div className=" w-3/5 mx-auto">
                 <h1 className=" text-2xl md:text-5xl font-bold text-white">
                   {" "}
-                  Specific Health Concern
+                  Welcome <span className=" text-red-500">{typrEffect}</span>
                 </h1>
                 <p className="py-6">
                   Whether you're seeking guidance on a specific health concern
@@ -64,7 +78,7 @@ const Banner = () => {
             <div className="hero-content text-center">
               <div className=" w-3/5 mx-auto">
                 <h1 className=" text-red-700 text-2xl md:text-5xl font-bold">
-                  Experienced Doctors
+                  Welcome <span className=" text-red-500">{typrEffect}</span>
                 </h1>
                 <p className="py-6">
                   Our team of experienced doctors is here to address your health

@@ -1,43 +1,38 @@
 // import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// AOS.init();
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Allservics = () => {
-  // const [search, setsearch] = useState("");
+  const [search, setsearch] = useState("");
   const [servic, setservic] = useState([]);
   useEffect(() => {
-    fetch("https://doctor-servic-server.vercel.app/service")
+    fetch(`http://localhost:5001/service?search=${search}`)
       .then((res) => res.json())
       .then((data) => setservic(data));
   }, []);
 
-  // const handelsearch = (e) => {
-  //   e.preventDefault();
-  //   const text = e.target.text.value;
-
-  //   useEffect(() => {
-  //     fetch(`https://doctor-servic-server.vercel.app/all-servic?seaech=${text}`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ text: text }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => console.log(data));
-  //   }, [text]);
-  // };
+  const handelsearch = (e) => {
+    e.preventDefault();
+    const text = e.target.text.value;
+    setsearch(text);
+  };
+  AOS.init();
   return (
     <div className=" mt-10 md:max-w-[90%] mx-auto bg-red-100 p-5">
       <div className=" text-center space-y-2">
-        <h1 className="text-3xl md:text-5xl font-bold">All Services</h1>
-        <p>
+        <h1 data-aos="fade-right" className="text-3xl md:text-5xl font-bold">
+          All Services
+        </h1>
+        <p data-aos="fade-left">
           From preventive care to specialized treatments, our comprehensive
           services ensure that you receive <br /> the attention and support you
           deserve.{" "}
         </p>
         <div className=" md:flex gap-2 my-10 bg-green-700 p-5 rounded-md">
-          <form className=" space-x-2">
+          <form onSubmit={handelsearch} className=" space-x-2">
             <input
               type="text"
               className=" input input-bordered"
@@ -55,6 +50,8 @@ const Allservics = () => {
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-9 ">
           {servic.map((data) => (
             <div
+              data-aos="zoom-in"
+              data-aos-duration="1000"
               key={data._id}
               className=" border shadow-xl bg-green-500 rounded-md p-2"
             >

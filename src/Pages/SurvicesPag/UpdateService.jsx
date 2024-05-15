@@ -21,7 +21,7 @@ const UpdateService = () => {
       area,
       desc,
     };
-    fetch(`https://doctor-servic-server.vercel.app/updatsingleservic/${_id}`, {
+    fetch(`http://localhost:5001/updatsingleservic/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

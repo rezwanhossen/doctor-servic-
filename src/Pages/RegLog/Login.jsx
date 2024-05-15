@@ -13,7 +13,7 @@ const Login = () => {
   const { user, login, googlelogin, loding } = useContext(AuthContext);
   const naviget = useNavigate();
   const location = useLocation();
-  const form = location.state || "/";
+  const forem = location.state || "/";
 
   useEffect(() => {
     if (user) {
@@ -24,7 +24,7 @@ const Login = () => {
   const googleloginuser = async () => {
     try {
       await googlelogin();
-      naviget(form, { replace: true });
+      naviget(forem);
       toast.success("Login Succesfully !");
     } catch (error) {
       console.log(error?.message);
@@ -40,7 +40,7 @@ const Login = () => {
     try {
       const result = await login(email, password);
 
-      naviget("/");
+      naviget(forem);
       toast.success("Login Succesfully !");
     } catch (error) {
       console.log(error?.message);

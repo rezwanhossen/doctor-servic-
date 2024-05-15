@@ -35,7 +35,7 @@ const AddService = () => {
     };
 
     //sent data in data base
-    fetch("https://doctor-servic-server.vercel.app/service", {
+    fetch("http://localhost:5001/service", {
       method: "POST",
       headers: {
         "content-type": "application/json",

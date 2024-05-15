@@ -56,13 +56,13 @@ const FirbaseProvider = ({ children }) => {
       if (user) {
         // const loguser = { email: user?.email };
         axios
-          .post("https://doctor-servic-server.vercel.app/jwt", loguser, {
+          .post("http://localhost:5001/jwt", loguser, {
             withCredentials: "include",
           })
           .then((res) => console.log(res.data));
       } else {
         axios
-          .post("https://doctor-servic-server.vercel.app/logout", loguser, {
+          .post("http://localhost:5001/logout", loguser, {
             withCredentials: "include",
           })
           .then((res) => console.log(res.data));
